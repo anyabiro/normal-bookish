@@ -14,7 +14,7 @@ class BookController {
         this.router.post('/', this.createBook.bind(this));
     }
 
-    async getBooks(req: Request, res: Response) {
+    async getBooks(_req: Request, res: Response) {
         const books = await listBooks();
         return res.status(200).json(books);
     }

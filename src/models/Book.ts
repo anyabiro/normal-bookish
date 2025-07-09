@@ -1,8 +1,10 @@
-class Book {
-    protected id: number;
-    protected title: string;
-    protected author: string;
-    protected isbn: string;
+// TODO: Modify this interface to match what you have in the database
+
+interface Book {
+    BookID: number;
+    Title: string;
+    Author: string;
+    ISBN: string;
 }
 
 export default Book;
