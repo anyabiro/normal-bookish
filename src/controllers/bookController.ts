@@ -54,9 +54,26 @@ class BookController {
 
     async createBook(req: Request, res: Response) {
         const id = req.params.id;
+        const title: string = req.body.title;
+        const author = req.body.authors;
+        const ISBN = req.body.ISBN;
+
         if (Number.isNaN(id)) {
             return res.status(400).json({ error: 'Not a book id' });
         }
+
+        if (typeof title !== 'string') {
+            return res.status(400).json({ error: 'Not a valid title.' });
+        }
+
+        if (typeof author !== 'string') {
+            return res.status(400).json({ error: 'Not a valid author.' });
+        }
+
+        if (typeof ISBN !== 'string') {
+            return res.status(400).json({ error: 'Not a valid ISBN.' });
+        }
+
         const book = await addBook(req.body);
         return res.status(200).json(book);
     }
